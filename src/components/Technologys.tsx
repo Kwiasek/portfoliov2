@@ -2,7 +2,7 @@ import React from "react";
 
 export const Technologys = () => {
   return (
-    <div className="my-10 py-10 grid grid-cols-3 gap-3 md:grid-cols-2 lg:flex lg:justify-around lg:flex-wrap myShadow border border-white px-4 rounded-xl shadow-md shadow-primary">
+    <div className="my-10 py-10 grid grid-cols-3 gap-3 md:grid-cols-2 lg:flex lg:justify-around lg:flex-wrap myShadow border border-white px-4 rounded-xl">
       <Technology icon="fa-brands fa-html5">HTML</Technology>
       <Technology icon="fa-brands fa-css3-alt">CSS</Technology>
       <Technology icon="fa-brands fa-js">JavaScript</Technology>
@@ -76,10 +76,10 @@ const Technology = ({
 }) => {
   return (
     <div
-      className={`flex flex-col gap-1 items-center ${className} cursor-pointer`}
+      className={`flex flex-col gap-1 items-center ${className} cursor-pointer  lg:opacity-20 lg:hover:opacity-100 transition-all`}
     >
       <i className={`${icon} text-primary text-[60px]`}></i>
-      <p className="font-bold text-slate-300 hover:text-white">{children}</p>
+      <p className="font-bold">{children}</p>
     </div>
   );
 };
@@ -95,10 +95,10 @@ const TechnologySVG = ({
 }) => {
   return (
     <div
-      className={`flex flex-col gap-1 items-center cursor-pointer ${className}`}
+      className={`flex flex-col gap-1 items-center cursor-pointer lg:opacity-20 lg:hover:opacity-100 transition-all ${className}`}
     >
       {children}
-      <p className="font-bold text-slate-300 hover:text-white">{text}</p>
+      <p className="font-bold">{text}</p>
     </div>
   );
 };
