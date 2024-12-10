@@ -102,8 +102,8 @@ const Button = ({
   return (
     <a
       href={href}
-      className={`px-3 py-2 font-bold text-lg rounded-lg ${
-        primary ? "bg-primary" : "border border-primary"
+      className={`px-3 py-2 text-lg rounded-lg ${
+        primary ? "bg-primary text-slate-900" : "border border-primary"
       }`}
     >
       {children}

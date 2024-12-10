@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import Script from "next/script";
+import "dotenv/config";
 
 export const metadata: Metadata = {
   title: "Create Next App",
