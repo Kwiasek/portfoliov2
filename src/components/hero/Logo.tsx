@@ -1,4 +1,4 @@
-import { graffitiYouth } from "@/app/layout";
+import { graffitiYouth } from "@/app/fonts/graffitiYouth";
 
 export const Logo = ({ className = "" }: { className: string }) => {
   return (

@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import Script from "next/script";
-
-export const graffitiYouth = localFont({
-  src: "./fonts/GraffitiYouth-Regular.otf",
-  variable: "--font-graffiti-youth",
-  weight: "400",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
