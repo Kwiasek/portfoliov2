@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SectionHeader } from "./SectionHeader";
 import hackerMind from "/public/undraw_hacker_mind_-6-y85.svg";
+import { Technologys } from "./Technologys";
 export const About = () => {
   return (
     <section id="about">
@@ -19,8 +20,9 @@ export const About = () => {
         />
       </div>
       <h2 className="pt-10 md:pt-12 lg:pt-14 text-xl md:text-2xl lg:text-3xl font-bold">
-        Technologys I use
+        Technologys I use:
       </h2>
+      <Technologys />
     </section>
   );
 };

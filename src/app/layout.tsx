@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
+import Script from "next/script";
 
 export const graffitiYouth = localFont({
   src: "./fonts/GraffitiYouth-Regular.otf",
@@ -20,10 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         <Nav />
         {children}
+        <Script
+          src="https://kit.fontawesome.com/debda86926.js"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );

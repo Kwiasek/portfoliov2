@@ -1,8 +1,8 @@
-import { ArrowDown } from "../icons/ArrowDown";
 import Image from "next/image";
 import progressiveApp from "/public/undraw_progressive_app_m-9-ms.svg";
 import { Logo } from "./Logo";
 import "animate.css";
+import { ArrowDown } from "../icons/ArrowDown";
 
 export const Hero = () => {
   return (
