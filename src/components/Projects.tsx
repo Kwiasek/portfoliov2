@@ -1,8 +1,9 @@
-import { supabase } from "@/db/supabase";
+// import { supabase } from "@/db/supabase";
 import Image from "next/image";
 import React from "react";
 import { SectionHeader } from "./SectionHeader";
 import { Github, ExternalLink } from "lucide-react";
+import { createClient } from "@/utils/supabase/client";
 
 interface ProjectInterface {
   id?: number;
@@ -15,6 +16,7 @@ interface ProjectInterface {
 }
 
 export const Projects = async () => {
+  const supabase = createClient();
   const { data: projects, error } = await supabase.from("projects").select("*");
   if (error) {
     return <p>Something went wrong...</p>;
