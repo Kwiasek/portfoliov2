@@ -10,7 +10,13 @@ export const Hero = () => {
       <div className="w-full flex flex-col md:flex-row h-full justify-center gap-10 md:justify-around items-center">
         <div className="flex flex-col items-center w-full">
           <h1>
-            <Logo className="text-7xl md:text-8xl animate__animated animate__tada" />
+            <a
+              href="https://github.com/kwiasek"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Logo className="text-7xl md:text-8xl animate__animated animate__tada" />
+            </a>
           </h1>
           <h2 className="text-lg md:text-2xl text-nowrap">
             Full-Stack Developer
