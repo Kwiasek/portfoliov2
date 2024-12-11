@@ -2,6 +2,7 @@ import { supabase } from "@/db/supabase";
 import Image from "next/image";
 import React from "react";
 import { SectionHeader } from "./SectionHeader";
+import { Github, ExternalLink } from "lucide-react";
 
 interface ProjectInterface {
   id?: number;
@@ -10,6 +11,7 @@ interface ProjectInterface {
   live_url: string;
   code_url: string;
   image_url: string;
+  technologys: string[];
 }
 
 export const Projects = async () => {
@@ -20,40 +22,43 @@ export const Projects = async () => {
   return (
     <section id="projects">
       <SectionHeader>Projects</SectionHeader>
-      <div className="flex flex-wrap justify-center md:justify-between items-start gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects?.map((project: ProjectInterface) => {
           return (
-            <Project
+            <ProjectCard
               key={project.id}
               name={project.name}
               description={project.description}
-              live_url={project.description}
+              live_url={project.live_url}
               code_url={project.code_url}
               image_url={project.image_url}
+              technologys={project.technologys}
             />
           );
         })}
         {projects?.map((project: ProjectInterface) => {
           return (
-            <Project
+            <ProjectCard
               key={project.id}
               name={project.name}
               description={project.description}
-              live_url={project.description}
+              live_url={project.live_url}
               code_url={project.code_url}
               image_url={project.image_url}
+              technologys={project.technologys}
             />
           );
         })}
         {projects?.map((project: ProjectInterface) => {
           return (
-            <Project
+            <ProjectCard
               key={project.id}
               name={project.name}
               description={project.description}
-              live_url={project.description}
+              live_url={project.live_url}
               code_url={project.code_url}
               image_url={project.image_url}
+              technologys={project.technologys}
             />
           );
         })}
@@ -62,51 +67,74 @@ export const Projects = async () => {
   );
 };
 
-const Project = ({
+const ProjectCard = ({
   name,
   description,
   live_url,
   code_url,
   image_url,
+  technologys,
 }: ProjectInterface) => {
   return (
-    <div className="flex flex-col border border-white myShadow p-5 rounded-xl gap-5 min-w-[250px] max-w-[500px]">
-      <h3 className="text-xl font-bold">{name}</h3>
-      <Image
-        src={image_url}
-        alt={name}
-        className="w-auto rounded-xl"
-        width={1497}
-        height={935}
-      />
-      <p className="tracking-wide">{description}</p>
-      <div className="flex justify-between">
-        <Button primary href={live_url}>
-          Open Live
-        </Button>
-        <Button href={code_url}>Open Code</Button>
+    <div className="bg-neutral-900 rounded-xl myShadow overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+      <div className="relative h-48">
+        <Image
+          src={image_url}
+          alt={name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-white mb-2">{name}</h3>
+        <p className="text-gray-400 mb-4">{description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologys.map((tech) => (
+            <TechnologyTag key={tech} name={tech} />
+          ))}
+        </div>
+        <ProjectLinks code_url={code_url} live_url={live_url} />
       </div>
     </div>
   );
 };
 
-const Button = ({
-  href,
-  children,
-  primary,
+const TechnologyTag = ({ name }: { name: string }) => {
+  return (
+    <span className="px-3 py-1 bg-primary text-black rounded-full text-sm">
+      {name}
+    </span>
+  );
+};
+
+const ProjectLinks = ({
+  code_url,
+  live_url,
 }: {
-  href: string;
-  children: React.ReactNode;
-  primary?: boolean;
+  code_url: string;
+  live_url: string;
 }) => {
   return (
-    <a
-      href={href}
-      className={`px-3 py-2 text-lg rounded-lg ${
-        primary ? "bg-primary text-slate-900" : "border border-primary"
-      }`}
-    >
-      {children}
-    </a>
+    <div className="flex gap-4">
+      <a
+        href={code_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
+      >
+        <Github size={20} />
+        <span>Code</span>
+      </a>
+      <a
+        href={live_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors"
+      >
+        <ExternalLink size={20} />
+        <span>Live Demo</span>
+      </a>
+    </div>
   );
 };
